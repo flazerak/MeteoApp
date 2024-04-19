@@ -4,27 +4,34 @@ import { SafeAreaView,
      Text,
      ImageBackground,
      StatusBar,
-     View } from "react-native-web";
-import { Feather } from '@expo/vector-icons';
+     View } from "react-native";
 import IconText from "../components/IconText";
 
 const City = () => {
-
+    const {container, 
+        imagelayout, 
+        CityName, 
+        CountryName,
+        CityText, 
+        populationWrapper ,
+        populationText, 
+        risesetWrapper,
+        risesetText,
+        rowlayout} = styles;
     return (
-        
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={container}>
             <ImageBackground
                 source={require('./../../assets/CityBackground.jpg')}
-                style={styles.imagelayout}
+                style={imagelayout}
             >
-                <Text style={[styles.CityName, styles.CityText]}>London</Text>
-                <Text style={[styles.CountryName, styles.CityText]}>UK</Text>
-                <View style={styles.populationWrapper}>
-                    <IconText iconName={'user'} iconColor={'red'} bodyText={'8000'} bodyteststyles={styles.populationText}/>
+                <Text style={[CityName, CityText]}>London</Text>
+                <Text style={[CountryName, CityText]}>UK</Text>
+                <View style={[populationWrapper,rowlayout]}>
+                    <IconText iconName={'user'} iconColor={'red'} bodyText={'8000'} bodyteststyles={populationText}/>
                 </View>
-                <View style={styles.risesetWrapper}>
-                    <IconText iconName={'sunrise'} iconColor={'white'} bodyText={'10:56:58am'} bodyteststyles={styles.risesetText}/>
-                    <IconText iconName={'sunset'} iconColor={'white'} bodyText={'17:28:15pm'} bodyteststyles={styles.risesetText}/>
+                <View style={[risesetWrapper, rowlayout]}>
+                    <IconText iconName={'sunrise'} iconColor={'white'} bodyText={'10:56:58am'} bodyteststyles={risesetText}/>
+                    <IconText iconName={'sunset'} iconColor={'white'} bodyText={'17:28:15pm'} bodyteststyles={risesetText}/>
                 </View> 
             </ImageBackground>
         </SafeAreaView>
@@ -53,9 +60,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     populationWrapper: {
-        flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
         marginTop: 30,
     },
     populationText: {
@@ -65,14 +70,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     risesetWrapper: {
-        flexDirection: 'row',
-        alignItems: 'center',
         justifyContent: 'space-around',
         marginTop: 30,
     },
     risesetText: {
         fontSize: 20,
         color: 'white',
+    },
+    rowlayout: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
 })
 export default City;

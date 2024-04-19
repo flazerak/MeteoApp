@@ -1,13 +1,14 @@
 import React from "react";
-import {  StyleSheet, Text, View } from "react-native-web";
+import {  StyleSheet, Text, View } from "react-native";
 import { Feather } from '@expo/vector-icons';
 
 const IconText = (props) => {
     const {iconName, iconColor, bodyText, bodyteststyles} = props;
+    const {textTheme, container} = styles;
     return (
-        <View style={styles.container}>
+        <View style={container}>
             <Feather name={iconName} size={50} color={iconColor}/>
-            <Text style={[styles.textTheme, bodyteststyles]}>{bodyText}</Text>
+            <Text style={[textTheme, bodyteststyles]}>{bodyText}</Text>
         </View>
     
     )
