@@ -1,67 +1,86 @@
-import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
-import { Feather } from '@expo/vector-icons';
-import RowText from '../components/RowText';
+import React from "react";
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+
+import { Feather } from "@expo/vector-icons";
+import RowText from "../components/RowText";
 
 const CurrentWeather = () => {
-  const {container, temp,wrapper, feels, highLow, highLowWrapper, bodyWrapper, description, message} = styles;
+  const {
+    container,
+    temp,
+    wrapper,
+    feels,
+    highLow,
+    highLowWrapper,
+    bodyWrapper,
+    description,
+    message,
+  } = styles;
   return (
-
     <SafeAreaView style={wrapper}>
       <View style={container}>
         <Feather name="sun" size={100} color="black" />
         <Text style={temp}>6</Text>
         <Text style={feels}>Feels like 5</Text>
 
-        <RowText messageone="High: 8" messagetwo="Low: 6" containerstyle={highLowWrapper} messageonestyle={highLow} messagetwostyle={highLow} />      
+        <RowText
+          messageone="High: 8"
+          messagetwo="Low: 6"
+          containerstyle={highLowWrapper}
+          messageonestyle={highLow}
+          messagetwostyle={highLow}
+        />
       </View>
 
-      <RowText messageone="It's Sunny" messagetwo="It's perfect t-shirt weather" containerstyle={bodyWrapper} messageonestyle={description} messagetwostyle={message} />
+      <RowText
+        messageone="It's Sunny"
+        messagetwo="It's perfect t-shirt weather"
+        containerstyle={bodyWrapper}
+        messageonestyle={description}
+        messagetwostyle={message}
+      />
     </SafeAreaView>
-    
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  container : {
-    backgroundColor: 'pink',
+  container: {
+    backgroundColor: "pink",
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   wrapper: {
     flex: 1,
-    backgroundColor: 'pink',
+    backgroundColor: "pink",
   },
   temp: {
-    color: 'black',
-    fontSize: 48
+    color: "black",
+    fontSize: 48,
   },
   feels: {
-    color: 'black',
-    fontSize: 30
+    color: "black",
+    fontSize: 30,
   },
   highLow: {
-    color: 'black',
-    fontSize: 20
+    color: "black",
+    fontSize: 20,
   },
   highLowWrapper: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   bodyWrapper: {
-    justifyContent:'flex-end',
-    alignItems: 'flex-start',
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
     paddingLeft: 25,
-    marginBottom: 50
+    marginBottom: 50,
   },
   description: {
-    fontSize: 48
+    fontSize: 48,
   },
   message: {
-    fontSize: 30
-  }
+    fontSize: 30,
+  },
+});
 
-}
-)
-
-export default CurrentWeather
+export default CurrentWeather;
