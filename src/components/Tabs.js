@@ -14,10 +14,10 @@ const Tabs = ({weather}) => {
         tabBarActiveTintColor: "tomato",
         tabBarInactiveTintColor: "grey",
         tabBarStyle: {
-          backgroundColor: "lightblue",
+          backgroundColor: "#CBAFAF",
         },
         headerStyle: {
-          backgroundColor: "lightblue",
+          backgroundColor: "#CBAFAF",
         },
         headerTiltleStyle: {
           fontWeight: "bold",
@@ -27,8 +27,8 @@ const Tabs = ({weather}) => {
       }}
     >
       <Tab.Screen
-        name={"CurrentWeather"}
-        component={CurrentWeather}
+        name={"Current"}
+        // component={CurrentWeather}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -38,11 +38,13 @@ const Tabs = ({weather}) => {
             />
           ),
         }}
-      />
+      >
+        {() => <CurrentWeather weatherData={weather.list[0]} />}
+      </Tab.Screen>
 
       <Tab.Screen
-        name={"UpcomingWeather"}
-        component={UpcomingWeather}
+        name={"Upcoming"}
+        // component={UpcomingWeather}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -52,10 +54,12 @@ const Tabs = ({weather}) => {
             />
           ),
         }}
-      />
+      >
+        {() => <UpcomingWeather weatherData={weather.list} />}
+      </Tab.Screen>
       <Tab.Screen
         name={"City"}
-        component={City}
+        // component={City}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -65,7 +69,9 @@ const Tabs = ({weather}) => {
             />
           ),
         }}
-      />
+      >
+        {() => <City weatherData={weather.city}/>}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 };
